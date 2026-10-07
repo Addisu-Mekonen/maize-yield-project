@@ -31,11 +31,7 @@ async def predict(
     image: UploadFile = File(...),
     tabular_data: str = Form(...),
 ):
-    # Parse and validate the JSON string against our Pydantic schema.
-    # Raises a proper 400 error instead of letting a malformed request
-    # fall through and mismatch our response_model (which caused a 500
-    # earlier — response_model validation failures surface as 500s, not
-    # clean 4xx errors, so input validation must be handled explicitly).
+   
     try:
         parsed = json.loads(tabular_data)
         tabular_input = TabularInput(**parsed)
