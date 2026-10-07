@@ -12,9 +12,7 @@ from app.model_utils import fuse_prediction
 
 app = FastAPI(title="Maize Yield Prediction API")
 
-# Allow requests from the Flutter app (mobile) — tighten allow_origins
-# to specific domains once deployed, this wide-open setting is fine for
-# local development only
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
